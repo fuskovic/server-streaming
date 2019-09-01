@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package file;
+option go_package="filepb";
+
+message fileRequest{
+    string file_name = 1;
+}
+
+message fileResponse{
+    bytes shard = 1;
+}
+
+service fileService{
+    rpc Download(fileRequest) returns (stream fileResponse){};
+}
