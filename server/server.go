@@ -23,13 +23,13 @@ func (s *server) Download(req *filepb.FileRequest, stream filepb.FileService_Dow
 
 	fileInfo, err := os.Stat(path)
 	if err != nil {
-		log.Fatalf("failed to get file info : %v\n", err)
+		return err
 	}
 	fileSize := fileInfo.Size()
 
 	f, err := os.Open(path)
 	if err != nil {
-		log.Fatalf("failed to open requested file : %v\n", err)
+		return err
 	}
 	defer f.Close()
 
