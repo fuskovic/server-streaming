@@ -48,7 +48,7 @@ Add any files you want to play with to `server/files/` before building the image
 
     make download file=testfile
 
-The last make target is an example of a download using the testfile this repo comes with as the arg value. It downloads
+The last make target is an example of a download using the testfile this repo comes with as the arg value.
 
 To tear down the container use
 
