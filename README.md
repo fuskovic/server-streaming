@@ -36,3 +36,20 @@ Example of successful client output:
         23 MB downloaded   
         successfully downloaded testvideo.mp4
 
+### Running the server with Docker
+
+If your docker daemon is running I added a make file with some targets for running the file-server in a container and initiating a download.
+
+Add any files you want to play with to `server/files/` before building the image with the first make target.
+
+    make image
+
+    make container
+
+    make download file=testfile
+
+The last make target is an example of a download using the testfile this repo comes with as the arg value. It downloads
+
+To tear down the container use
+
+    make stop

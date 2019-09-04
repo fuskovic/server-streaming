@@ -7,13 +7,22 @@ import (
 	"net"
 	"os"
 	"path/filepath"
+	"runtime"
 
 	filepb "github.com/fuskovic/server-streaming/proto"
 
 	"google.golang.org/grpc"
 )
 
-var filesDir = "files"
+var filesDir string
+
+func init(){
+	_,fp,_,ok := runtime.Caller(0)
+	if !ok {
+		log.Fatalf("failed to get caller file")
+	}
+	filesDir = filepath.Join(filepath.Dir(fp),"files")
+}
 
 type server struct{}
 
